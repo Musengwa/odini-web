@@ -1,0 +1,73 @@
+/* components/About.css */
+.about {
+  padding: 5rem 0;
+  background-color: var(--light-sand);
+}
+
+.about-content {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h3 {
+  font-size: 1.8rem;
+  color: var(--deep-green);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.mission {
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--deep-green);
+  padding: 1.5rem;
+  border-left: 4px solid var(--warm-orange);
+  background: rgba(255, 122, 0, 0.05);
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-frame {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.image-frame:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .about-image {
+    width: 100%;
+  }
+}
