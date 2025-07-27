@@ -1,0 +1,89 @@
+/* App.css */
+:root {
+  --sand: #E6D3A7;
+  --deep-green: #1E5631;
+  --warm-orange: #FF7A00;
+  --royal-blue: #0047AB;
+  --light-sand: #f5f0e1;
+  --dark-text: #333333;
+  --light-text: #f8f8f8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Lato', sans-serif;
+  color: var(--dark-text);
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--deep-green);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--warm-orange);
+  margin: 0.5rem auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--warm-orange);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #e06d00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--warm-orange);
+  color: var(--warm-orange);
+}
+
+.btn-outline:hover {
+  background: var(--warm-orange);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}

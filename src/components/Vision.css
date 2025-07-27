@@ -1,0 +1,128 @@
+/* components/Vision.css */
+.vision {
+  padding: 5rem 0;
+  background-color: white;
+}
+
+.vision-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-size: 1.2rem;
+  color: var(--dark-text);
+}
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.vision-card {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.vision-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.vision-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.vision-card h3 {
+  font-size: 1.4rem;
+  color: var(--deep-green);
+  margin-bottom: 1rem;
+}
+
+.vision-card p {
+  color: var(--dark-text);
+}
+
+.comparison {
+  background: var(--light-sand);
+  padding: 3rem;
+  border-radius: 8px;
+}
+
+.comparison h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--deep-green);
+}
+
+.comparison-table {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.5fr;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-header {
+  display: contents;
+  font-weight: 700;
+}
+
+.header-cell {
+  padding: 1rem;
+  background: var(--deep-green);
+  color: white;
+  text-align: center;
+}
+
+.table-row {
+  display: contents;
+}
+
+.table-row:nth-child(even) .row-cell {
+  background: rgba(230, 211, 167, 0.2);
+}
+
+.row-cell {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+  .comparison-table {
+    grid-template-columns: 1fr;
+  }
+  
+  .table-header {
+    display: none;
+  }
+  
+  .table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .row-cell:first-child {
+    font-weight: 700;
+    background: rgba(30, 86, 49, 0.1);
+  }
+  
+  .row-cell:nth-child(2)::before {
+    content: "Odini: ";
+    font-weight: 700;
+    color: var(--deep-green);
+  }
+  
+  .row-cell:nth-child(3)::before {
+    content: "Global Apps: ";
+    font-weight: 700;
+    color: var(--royal-blue);
+  }
+}
