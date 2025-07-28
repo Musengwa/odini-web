@@ -1,6 +1,7 @@
 // components/Join.js
 import React from 'react';
 import './Join.css';
+import EmailForm from './email';
 
 const Join = () => {
   return (
@@ -19,7 +20,7 @@ const Join = () => {
                 <li>Promote your events to a targeted audience</li>
                 <li>Get verified for increased trust and visibility</li>
               </ul>
-              <button className="btn">Become a Partner</button>
+              <EmailForm/>
             </div>
           </div>
           
@@ -27,19 +28,7 @@ const Join = () => {
             <div className="join-card">
               <h3>For Travelers</h3>
               <p>Be the first to experience Odini and transform how you explore Zambia. Sign up for early access and updates.</p>
-              <form className="early-access-form">
-                <input 
-                  type="text" 
-                  placeholder="Your Name" 
-                  required 
-                />
-                <input 
-                  type="email" 
-                  placeholder="Email Address" 
-                  required 
-                />
-                <button type="submit" className="btn">Get Early Access</button>
-              </form>
+              <EmailForm/>
             </div>
           </div>
         </div>
