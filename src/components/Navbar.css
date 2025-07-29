@@ -1,4 +1,4 @@
-/* components/Navbar.css */
+ /* components/Navbar.css */
 .navbar {
   position: fixed;
   top: 0;
@@ -27,7 +27,7 @@
   align-items: center;
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--deep-green);
+  color: hsl(120, 83%, 9%);
   z-index: 1001;
 }
 
@@ -43,8 +43,8 @@
 .nav-links a {
   color: var(--dark-text);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 200;
+  font-size: 1.1rem;
   transition: color 0.3s ease;
   cursor: pointer;
 }

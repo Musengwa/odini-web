@@ -1,6 +1,10 @@
 // components/Vision.js
 import React from 'react';
 import './Vision.css';
+import {FaBook} from 'react-icons/fa';
+import {FaShieldAlt} from 'react-icons/fa';
+import {FaCalendar} from 'react-icons/fa';
+import {MdLocationCity} from 'react-icons/md';
 
 const Vision = () => {
   return (
@@ -11,25 +15,25 @@ const Vision = () => {
         
         <div className="vision-grid">
           <div className="vision-card">
-            <div className="vision-icon">📚</div>
+            <div className="vision-icon"><FaBook size={30} color="#232424ff" /></div>
             <h3>Zambia's Cultural Wiki</h3>
             <p>Learn traditions, languages, and tribal histories with our comprehensive cultural database.</p>
           </div>
           
           <div className="vision-card">
-            <div className="vision-icon">🔒</div>
+            <div className="vision-icon"><div className="vision-icon"><FaShieldAlt size={30} color="#232424ff" /></div></div>
             <h3>Safe & Verified Bookings</h3>
             <p>Book with confidence through our verified system that prioritizes safety and authenticity.</p>
           </div>
           
           <div className="vision-card">
-            <div className="vision-icon">📅</div>
+            <div className="vision-icon"><div className="vision-icon"><FaCalendar size={30} color="#323436ff" /></div></div>
             <h3>Real-Time Event Updates</h3>
             <p>Never miss a festival or cultural event with live updates and personalized notifications.</p>
           </div>
           
           <div className="vision-card">
-            <div className="vision-icon">🏡</div>
+            <div className="vision-icon"><MdLocationCity size={30} color="#232424ff"/></div>
             <h3>Support Rural Homestays</h3>
             <p>Discover and support authentic rural experiences that benefit local communities directly.</p>
           </div>

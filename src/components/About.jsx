@@ -23,7 +23,7 @@ const About = () => {
           <div className="about-image">
             <div className="image-frame">
               <img 
-                src="https://images.unsplash.com/photo-1614531341773-3bff8b7cb3fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80" 
+                src="https://d2vc0hr24xoxe3.cloudfront.net/eyJidWNrZXQiOiJ3ZWItYXBwLXN0b3JhZ2Utbm9ydGgtdmlyZ2luaWEiLCJrZXkiOiJ3cC1jb250ZW50L3VwbG9hZHMvMjAyMy8wMy8xNTA3MDEzMy9MaXZpbmdzdG9uZS1XaWRlc2NyZWVuLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJoZWlnaHQiOjEwODAsIndpZHRoIjoxOTIwLCJmaXQiOiJpbnNpZGUifX19" 
                 alt="Zambian culture" 
               />
             </div>

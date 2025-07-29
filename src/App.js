@@ -7,6 +7,7 @@ import Vision from './components/Vision';
 import Join from './components/Join';
 import Roadmap from './components/Roadmap';
 import Footer from './components/Footer';
+import EmailForm from './components/email';
 import './App.css';
 
 function App() {

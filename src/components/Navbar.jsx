@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import './Navbar.css';
+import { FaDoorOpen } from 'react-icons/fa';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,7 +30,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-content">
           <div className="logo">
-            <span className="logo-icon">🌍</span>
+            <span className="logo-icon"><FaDoorOpen size={30} color='#ff6d13ff'/></span>
             <span className="logo-text">Odini</span>
           </div>
           
@@ -87,7 +88,16 @@ const Navbar = () => {
           </div>
           
           <div className="nav-actions">
-            <button className="btn btn-outline">Early Access</button>
+            <button className="btn btn-outline"><Link 
+              to="join" 
+              spy={true} 
+              smooth={true} 
+              offset={-70} 
+              duration={500}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Early Access
+            </Link></button>
           </div>
           
           <div className="mobile-toggle" onClick={toggleMobileMenu}>

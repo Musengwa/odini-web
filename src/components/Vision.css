@@ -97,6 +97,7 @@
 @media (max-width: 768px) {
   .comparison-table {
     grid-template-columns: 1fr;
+    margin: 10px;
   }
   
   .table-header {
@@ -105,7 +106,7 @@
   
   .table-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     border-bottom: 1px solid #ddd;
   }
   

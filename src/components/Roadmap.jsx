@@ -2,6 +2,11 @@
 import React from 'react';
 import './Roadmap.css';
 
+import {SiOpenai} from 'react-icons/si';
+import {MdVerified} from 'react-icons/md';
+import {FaMapMarkedAlt} from 'react-icons/fa';
+
+
 const Roadmap = () => {
   return (
     <section id="roadmap" className="roadmap">
@@ -11,7 +16,7 @@ const Roadmap = () => {
         <div className="roadmap-content">
           <div className="timeline">
             <div className="timeline-item">
-              <div className="timeline-date">Q3 2023</div>
+              <div className="timeline-date">phase 1</div>
               <div className="timeline-content">
                 <h3>MVP Launch</h3>
                 <ul>
@@ -23,7 +28,7 @@ const Roadmap = () => {
             </div>
             
             <div className="timeline-item">
-              <div className="timeline-date">Q4 2023</div>
+              <div className="timeline-date">phase 2</div>
               <div className="timeline-content">
                 <h3>Cultural Expansion</h3>
                 <ul>
@@ -35,7 +40,7 @@ const Roadmap = () => {
             </div>
             
             <div className="timeline-item">
-              <div className="timeline-date">Q1 2024</div>
+              <div className="timeline-date">phase 3</div>
               <div className="timeline-content">
                 <h3>Nationwide Coverage</h3>
                 <ul>
@@ -48,20 +53,21 @@ const Roadmap = () => {
           </div>
           
           <div className="feature-highlight">
+            <h2>more to come</h2>
             <div className="feature-card">
-              <div className="feature-icon">🤖</div>
+              <div className="feature-icon"><SiOpenai size={30} color='#2c2c2eff'/></div>
               <h3>AI Travel Guide</h3>
               <p>Ask Zambia-specific questions and get personalized recommendations</p>
             </div>
             
             <div className="feature-card">
-              <div className="feature-icon">✅</div>
+              <div className="feature-icon"><MdVerified size={30} color='#2c2c2eff'/></div>
               <h3>Verified Bookings</h3>
               <p>Book with confidence through our verified partner system</p>
             </div>
             
             <div className="feature-card">
-              <div className="feature-icon">🗺️</div>
+              <div className="feature-icon"><FaMapMarkedAlt size={30} color='#2c2c2eff'/></div>
               <h3>Offline Maps</h3>
               <p>Access maps and guides even without internet connection</p>
             </div>
