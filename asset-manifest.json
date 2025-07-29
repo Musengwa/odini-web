@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Musengwa/odini-web/tree/master/static/css/main.2ccb5452.css",
-    "main.js": "/Musengwa/odini-web/tree/master/static/js/main.eb19ca0d.js",
-    "static/js/453.0e01b7de.chunk.js": "/Musengwa/odini-web/tree/master/static/js/453.0e01b7de.chunk.js",
-    "index.html": "/Musengwa/odini-web/tree/master/index.html",
-    "main.2ccb5452.css.map": "/Musengwa/odini-web/tree/master/static/css/main.2ccb5452.css.map",
-    "main.eb19ca0d.js.map": "/Musengwa/odini-web/tree/master/static/js/main.eb19ca0d.js.map",
-    "453.0e01b7de.chunk.js.map": "/Musengwa/odini-web/tree/master/static/js/453.0e01b7de.chunk.js.map"
+    "main.css": "/odini-web/static/css/main.2ccb5452.css",
+    "main.js": "/odini-web/static/js/main.1f7da3bb.js",
+    "static/js/453.0e01b7de.chunk.js": "/odini-web/static/js/453.0e01b7de.chunk.js",
+    "index.html": "/odini-web/index.html",
+    "main.2ccb5452.css.map": "/odini-web/static/css/main.2ccb5452.css.map",
+    "main.1f7da3bb.js.map": "/odini-web/static/js/main.1f7da3bb.js.map",
+    "453.0e01b7de.chunk.js.map": "/odini-web/static/js/453.0e01b7de.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2ccb5452.css",
-    "static/js/main.eb19ca0d.js"
+    "static/js/main.1f7da3bb.js"
   ]
 }
