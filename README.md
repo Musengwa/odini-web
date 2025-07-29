@@ -1,3 +1,12 @@
+#pull repo
+git pull https://github.com/Musengwa/odini-web
+
+#in cmd run 'npm install'
+npm install
+
+#after run 'npm start'
+npm start
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

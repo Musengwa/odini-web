@@ -1,3 +1,4 @@
+
 // components/EmailForm.js
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
@@ -84,5 +85,4 @@ const EmailForm = () => {
     </div>
   );
 };
-
 export default EmailForm;
