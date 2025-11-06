@@ -14,7 +14,7 @@ const About = () => {
             <p>Odini was born from a passion for Zambia's incredible cultural heritage and natural beauty. Our team of Zambian tech enthusiasts and travel experts came together with a shared vision: to create a platform that celebrates and preserves our nation's unique identity while making travel more accessible and meaningful.</p>
             
             <h3>Why Now?</h3>
-            <p>Zambia's tourism industry is growing rapidly, but local businesses and travelers lack tools designed specifically for our unique needs. Global platforms don't understand our culture, our events, or our rural communities. Odini changes that.</p>
+            <p>Zambia's tourism industry is growing rapidly, but local businesses and travelers lack tools designed specifically for our unique needs. Global platforms don't understand our culture, our events, or our local communities. Odini changes that.</p>
             
             <h3>Our Mission</h3>
             <p className="mission">"To digitize, preserve, and promote Zambia's cultural & travel landscape through technology."</p>
