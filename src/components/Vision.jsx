@@ -63,7 +63,7 @@ const Vision = () => {
             
             <div className="table-row">
               <div className="row-cell">Hyperlocal</div>
-              <div className="row-cell">Lists any business, even rural homestays</div>
+              <div className="row-cell">Lists any business, even local homestays</div>
               <div className="row-cell">Prioritizes large hotels</div>
             </div>
             
