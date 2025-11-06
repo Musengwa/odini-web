@@ -44,7 +44,7 @@ const Roadmap = () => {
               <div className="timeline-content">
                 <h3>Nationwide Coverage</h3>
                 <ul>
-                  <li>Rural homestay integration</li>
+                  <li>Local homestay integration</li>
                   <li>Mobile money payment options</li>
                   <li>Safety features & SOS system</li>
                 </ul>
