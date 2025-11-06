@@ -34,8 +34,8 @@ const Vision = () => {
           
           <div className="vision-card">
             <div className="vision-icon"><MdLocationCity size={30} color="#232424ff"/></div>
-            <h3>Support Rural Homestays</h3>
-            <p>Discover and support authentic rural experiences that benefit local communities directly.</p>
+            <h3>Support Local Homestays</h3>
+            <p>Discover and support authentic local experiences that benefit local communities directly.</p>
           </div>
         </div>
         
