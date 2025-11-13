@@ -1,10 +1,10 @@
 /* App.css */
 :root {
-  --sand: #E6D3A7;
-  --deep-green: #1E5631;
-  --warm-orange: #FF7A00;
-  --royal-blue: #0047AB;
-  --light-sand: #f5f0e1;
+  --sand: #e3bae9;
+  --deep-green: #561e45;
+  --warm-orange: #f344e7b7;
+  --royal-blue: #27292c;
+  --light-sand: #efe1f5;
   --dark-text: #333333;
   --light-text: #f8f8f8;
 }
@@ -66,20 +66,19 @@ h1, h2, h3, h4 {
 }
 
 .btn:hover {
-  background: #e06d00;
+  background: var(--warm-orange);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.247);
 }
 
 .btn-outline {
-  background: transparent;
-  border: 2px solid var(--warm-orange);
-  color: var(--warm-orange);
+  background: var(--deep-green);
+  color: rgba(255, 255, 255, 0.895) ;
 }
 
 .btn-outline:hover {
-  background: var(--warm-orange);
-  color: white;
+  background: rgba(255, 255, 255, 0.904);
+  color: var(--warm-orange);
 }
 
 @media (max-width: 768px) {

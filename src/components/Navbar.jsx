@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-content">
           <div className="logo">
-            <span className="logo-icon"><FaDoorOpen size={30} color='#ff6d13ff'/></span>
+            <span className="logo-icon"><FaDoorOpen size={30} color='#e45fffff'/></span>
             <span className="logo-text">Odini</span>
           </div>
           

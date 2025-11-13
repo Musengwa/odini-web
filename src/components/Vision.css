@@ -51,7 +51,7 @@
 
 .comparison {
   background: var(--light-sand);
-  padding: 3rem;
+  padding: 1rem;
   border-radius: 8px;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .table-row:nth-child(even) .row-cell {
-  background: rgba(230, 211, 167, 0.2);
+  background: rgba(167, 220, 230, 0.16);
 }
 
 .row-cell {
@@ -97,7 +97,7 @@
 @media (max-width: 768px) {
   .comparison-table {
     grid-template-columns: 1fr;
-    margin: 10px;
+    margin: 5px;
   }
   
   .table-header {
@@ -112,7 +112,7 @@
   
   .row-cell:first-child {
     font-weight: 700;
-    background: rgba(30, 86, 49, 0.1);
+    background: rgba(68, 30, 86, 0.1);
   }
   
   .row-cell:nth-child(2)::before {

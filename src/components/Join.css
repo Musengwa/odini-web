@@ -1,7 +1,7 @@
 /* components/Join.css */
 .join {
   padding: 5rem 0;
-  background: linear-gradient(to bottom, var(--deep-green), #153b24);
+  background: linear-gradient(to bottom, var(--deep-green), var(--warm-orange));
   color: white;
 }
 
