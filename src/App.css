@@ -1,12 +1,40 @@
 /* App.css */
 :root {
-  --sand: #e3bae9;
-  --deep-green: #561e45;
-  --warm-orange: #f344e7b7;
-  --royal-blue: #27292c;
-  --light-sand: #efe1f5;
-  --dark-text: #333333;
-  --light-text: #f8f8f8;
+  /* Backgrounds — clean white / neutral gray / black */
+  --background: #ffffff;
+  --background-muted: #f9fafb;
+  --surface: #ffffff;
+  --surface-alt: #f3f4f6;
+  --surface-strong: #e5e7eb;
+  --black: #0b0b0c;
+
+  /* Burgundy — accent / brand only */
+  --primary: #7a1e3a;
+  --primary-deep: #8a1b3c;
+  --primary-soft: #a44e69;
+  --primary-tint: #fdf2f5;
+  --primary-tint-strong: #fae0e8;
+
+  /* Text — near-black base */
+  --text: #111827;
+  --text-muted: #6b7280;
+  --text-subtle: #9ca3af;
+  --text-on-dark: #f8f8f8;
+  --text-on-dark-muted: rgba(248, 248, 248, 0.72);
+
+  /* Structural */
+  --border: #e5e7eb;
+  --border-on-dark: rgba(255, 255, 255, 0.14);
+  --white: #ffffff;
+  --overlay: rgba(0, 0, 0, 0.5);
+
+  /* Semantic */
+  --danger: #dc2626;
+  --success: #16a34a;
+
+  /* Typography */
+  --font-display: 'Anton', 'Inter', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * {
@@ -16,15 +44,23 @@
 }
 
 body {
-  font-family: 'Inter', 'Lato', sans-serif;
-  color: var(--dark-text);
-  background-color: #ffffff;
+  font-family: var(--font-body);
+  color: var(--text);
+  background-color: var(--background);
   line-height: 1.6;
 }
 
 h1, h2, h3, h4 {
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
   margin-bottom: 1rem;
+}
+
+h3, h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: normal;
 }
 
 .container {
@@ -34,11 +70,21 @@ h1, h2, h3, h4 {
   padding: 2rem 0;
 }
 
+.eyebrow {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   margin-bottom: 3rem;
-  color: var(--deep-green);
+  color: var(--text);
   position: relative;
 }
 
@@ -47,17 +93,25 @@ h1, h2, h3, h4 {
   display: block;
   width: 80px;
   height: 4px;
-  background: var(--warm-orange);
-  margin: 0.5rem auto;
+  background: var(--primary);
+  margin: 0.75rem auto 0;
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 800px;
+  margin: -2rem auto 3rem;
+  font-size: 1.15rem;
+  color: var(--text-muted);
 }
 
 .btn {
   display: inline-block;
   padding: 12px 28px;
-  background: var(--warm-orange);
-  color: white;
+  background: var(--primary);
+  color: var(--white);
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -66,23 +120,85 @@ h1, h2, h3, h4 {
 }
 
 .btn:hover {
-  background: var(--warm-orange);
+  background: var(--primary-deep);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.247);
+  box-shadow: 0 4px 12px rgba(122, 30, 58, 0.25);
 }
 
 .btn-outline {
-  background: var(--deep-green);
-  color: rgba(255, 255, 255, 0.895) ;
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--text);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.904);
-  color: var(--warm-orange);
+  background: var(--text);
+  color: var(--white);
+  box-shadow: none;
+}
+
+.btn-dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-dark:hover {
+  background: #1a1a1c;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+}
+
+.btn-outline-light:hover {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: none;
+}
+
+.btn-soon,
+.btn-soon:hover {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.badge-soon {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--primary-tint-strong);
+  color: var(--primary);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.badge-soon-dark {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
 }
 
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
+  }
+
+  .section-subtitle {
+    margin-top: -1rem;
   }
 }

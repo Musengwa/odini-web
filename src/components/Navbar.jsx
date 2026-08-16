@@ -4,6 +4,15 @@ import { Link } from 'react-scroll';
 import './Navbar.css';
 import { FaDoorOpen } from 'react-icons/fa';
 
+const NAV_ITEMS = [
+  { to: 'hero', label: 'Home' },
+  { to: 'about', label: 'About' },
+  { to: 'solution', label: 'Solution' },
+  { to: 'download', label: 'Get the App' },
+  { to: 'join', label: 'Join Us' },
+  { to: 'roadmap', label: 'Roadmap' },
+];
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -30,76 +39,41 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-content">
           <div className="logo">
-            <span className="logo-icon"><FaDoorOpen size={30} color='#e45fffff'/></span>
+            <span className="logo-icon"><FaDoorOpen size={28} color="#7a1e3a" /></span>
             <span className="logo-text">Odini</span>
           </div>
-          
+
           <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-            <Link 
-              to="hero" 
-              spy={true} 
-              smooth={true} 
-              offset={-70} 
-              duration={500}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              to="about" 
-              spy={true} 
-              smooth={true} 
-              offset={-70} 
-              duration={500}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link 
-              to="vision" 
-              spy={true} 
-              smooth={true} 
-              offset={-70} 
-              duration={500}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Vision
-            </Link>
-            <Link 
-              to="join" 
-              spy={true} 
-              smooth={true} 
-              offset={-70} 
-              duration={500}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Join Us
-            </Link>
-            <Link 
-              to="roadmap" 
-              spy={true} 
-              smooth={true} 
-              offset={-70} 
-              duration={500}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Roadmap
-            </Link>
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
-          
+
           <div className="nav-actions">
-            <button className="btn btn-outline"><Link 
-              to="join" 
-              spy={true} 
-              smooth={true} 
-              offset={-70} 
-              duration={500}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Early Access
-            </Link></button>
+            <button className="btn btn-outline">
+              <Link
+                to="join"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Early Access
+              </Link>
+            </button>
           </div>
-          
+
           <div className="mobile-toggle" onClick={toggleMobileMenu}>
             <div className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}>
               <span></span>

@@ -1,7 +1,7 @@
 /* components/Footer.css */
 .footer {
-  background: var(--dark-text);
-  color: white;
+  background: var(--black);
+  color: var(--white);
   padding: 4rem 0 0;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .social-links a:hover {
-  color: var(--warm-orange);
+  color: var(--primary-soft);
 }
 
 .footer-links h4, .footer-contact h4 {
@@ -58,7 +58,7 @@
   left: 0;
   width: 50px;
   height: 2px;
-  background: var(--warm-orange);
+  background: var(--primary);
 }
 
 .footer-links ul, .footer-contact ul {
@@ -76,7 +76,7 @@
 }
 
 .footer-links a:hover {
-  color: var(--warm-orange);
+  color: var(--primary-soft);
 }
 
 .footer-contact li {

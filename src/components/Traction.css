@@ -1,0 +1,25 @@
+/* components/Traction.css */
+.traction {
+  padding: 5rem 0;
+  background-color: var(--surface-alt);
+}
+
+.traction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.traction-card {
+  background: var(--surface);
+  border-left: 4px solid var(--primary);
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.traction-card p {
+  color: var(--text);
+  font-weight: 500;
+  margin: 0;
+}

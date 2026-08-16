@@ -1,0 +1,146 @@
+/* components/Solution.css */
+.solution {
+  padding: 5rem 0;
+  background-color: var(--surface);
+}
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.solution-card {
+  border-radius: 8px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+}
+
+.solution-card-highlight {
+  background: var(--primary-tint);
+  border: none;
+}
+
+.solution-card h3 {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.solution-list {
+  list-style: none;
+}
+
+.solution-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.solution-list-plain li {
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.solution-list-plain li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.solution-icon {
+  display: inline-flex;
+  color: var(--primary);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.comparison {
+  background: var(--surface-alt);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.comparison h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.comparison-table {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.4fr;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-header {
+  display: contents;
+  font-weight: 700;
+}
+
+.header-cell {
+  padding: 1rem;
+  background: var(--primary);
+  color: var(--white);
+  text-align: center;
+}
+
+.table-row {
+  display: contents;
+}
+
+.table-row:nth-child(even) .row-cell {
+  background: var(--surface);
+}
+
+.table-row:nth-child(odd) .row-cell {
+  background: var(--surface-alt);
+}
+
+.row-cell {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .comparison-table {
+    grid-template-columns: 1fr;
+    margin: 5px;
+  }
+
+  .table-header {
+    display: none;
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0;
+  }
+
+  .row-cell:first-child {
+    font-weight: 700;
+    background: var(--primary-tint);
+  }
+
+  .row-cell:nth-child(2)::before {
+    content: 'Odini: ';
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .row-cell:nth-child(3)::before {
+    content: 'Other Platforms: ';
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+}

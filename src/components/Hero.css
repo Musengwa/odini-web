@@ -2,16 +2,19 @@
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 700px;
+  min-height: 760px;
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-              url('https://images.unsplash.com/photo-1530543787849-128ce844b533?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: white;
+  background: #000000;
+  color: var(--white);
   padding-top: 70px;
+  overflow: hidden;
+}
+
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .hero-overlay {
@@ -20,37 +23,60 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgb(200, 20, 203), rgba(96, 8, 98, 0.993));
-  z-index: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(11, 11, 12, 0.78));
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 800px;
   text-align: center;
   margin: 0 auto;
 }
 
+.eyebrow-light {
+  color: var(--primary-soft);
+}
+
+.here-header {
+  font-size: larger;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 900;
+  justify-self: end;
+}
+
 .hero-text h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-  color: white;
-  line-height: 1.2;
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+  line-height: 1;
 }
 
 .tagline {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
   font-weight: 300;
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 3rem;
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  color: var(--text-on-dark-muted);
+}
+
+.hero-app-buttons {
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.hero-waitlist-label {
+  font-size: 0.95rem;
+  color: var(--text-on-dark-muted);
+  margin-bottom: 0.75rem;
 }
 
 .email-form {
@@ -71,17 +97,22 @@
 
 @media (max-width: 768px) {
   .hero-text h1 {
-    font-size: 2.5rem;
+    font-size: 3.2rem;
   }
-  
+
   .tagline {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
-  
+
+  .hero-app-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .email-form {
     flex-direction: column;
   }
-  
+
   .email-form input,
   .email-form button {
     width: 100%;

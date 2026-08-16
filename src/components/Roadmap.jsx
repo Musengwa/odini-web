@@ -2,9 +2,9 @@
 import React from 'react';
 import './Roadmap.css';
 
-import {SiOpenai} from 'react-icons/si';
-import {MdVerified} from 'react-icons/md';
-import {FaMapMarkedAlt} from 'react-icons/fa';
+import { SiOpenai } from 'react-icons/si';
+import { MdVerified } from 'react-icons/md';
+import { FaMapMarkedAlt } from 'react-icons/fa';
 
 
 const Roadmap = () => {
@@ -12,64 +12,63 @@ const Roadmap = () => {
     <section id="roadmap" className="roadmap">
       <div className="container">
         <h2 className="section-title">What's Coming</h2>
-        
+
         <div className="roadmap-content">
           <div className="timeline">
             <div className="timeline-item">
               <div className="timeline-date">phase 1</div>
               <div className="timeline-content">
-                <h3>MVP Launch</h3>
+                <h3>Lusaka Launch</h3>
                 <ul>
-                  <li>AI Travel Guide (basic NLP)</li>
-                  <li>Verified Booking System</li>
-                  <li>Event Calendar (Lusaka/Livingstone)</li>
+                  <li>Mobile money live across MTN, Airtel and Zamtel</li>
+                  <li>15–20 partners onboarded</li>
+                  <li>Recommendation engine live</li>
                 </ul>
               </div>
             </div>
-            
+
             <div className="timeline-item">
               <div className="timeline-date">phase 2</div>
               <div className="timeline-content">
-                <h3>Cultural Expansion</h3>
+                <h3>Livingstone Launch</h3>
                 <ul>
-                  <li>Cultural Wiki with offline access</li>
-                  <li>Multimedia uploads (photos/videos)</li>
-                  <li>Bemba/Nyanja language support</li>
+                  <li>40+ partners onboarded</li>
+                  <li>Commission model switched on</li>
                 </ul>
               </div>
             </div>
-            
+
             <div className="timeline-item">
               <div className="timeline-date">phase 3</div>
               <div className="timeline-content">
-                <h3>Nationwide Coverage</h3>
+                <h3>Nationwide Expansion</h3>
                 <ul>
-                  <li>Local homestay integration</li>
-                  <li>Mobile money payment options</li>
-                  <li>Safety features & SOS system</li>
+                  <li>Launch in a third city</li>
+                  <li>100+ partners onboarded</li>
+                  <li>Team scaling to match growth</li>
                 </ul>
               </div>
             </div>
           </div>
-          
+
           <div className="feature-highlight">
-            <h2>more to come</h2>
+            <h2>How It Works</h2>
             <div className="feature-card">
-              <div className="feature-icon"><SiOpenai size={30} color='#2c2c2eff'/></div>
-              <h3>AI Travel Guide</h3>
-              <p>Ask Zambia-specific questions and get personalized recommendations</p>
+              <div className="feature-icon"><FaMapMarkedAlt size={30} color="#7a1e3a" /></div>
+              <h3>Discover</h3>
+              <p>Browse AI-curated stays, events and experiences near you</p>
             </div>
-            
+
             <div className="feature-card">
-              <div className="feature-icon"><MdVerified size={30} color='#2c2c2eff'/></div>
-              <h3>Verified Bookings</h3>
-              <p>Book with confidence through our verified partner system</p>
+              <div className="feature-icon"><SiOpenai size={30} color="#7a1e3a" /></div>
+              <h3>Ask Your AI Guide</h3>
+              <p>Chat naturally — "what's buzzing for food near me?" — and get real answers</p>
             </div>
-            
+
             <div className="feature-card">
-              <div className="feature-icon"><FaMapMarkedAlt size={30} color='#2c2c2eff'/></div>
-              <h3>Offline Maps</h3>
-              <p>Access maps and guides even without internet connection</p>
+              <div className="feature-icon"><MdVerified size={30} color="#7a1e3a" /></div>
+              <h3>Book Instantly</h3>
+              <p>Confirm your booking with integrated mobile money checkout</p>
             </div>
           </div>
         </div>
