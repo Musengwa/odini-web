@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { FaAndroid } from 'react-icons/fa';
 import './AndroidInstallModal.css';
 
-const RELEASES_URL = 'https://github.com/Odini-tech/odini_mobile_app/releases';
+const APK_URL = 'https://github.com/Odini-tech/odini_mobile_app/releases/tag/soft-launch/application-7270c1f7-b7c1-427b-b569-9f4d7fafd1e6.apk';
 
 const AndroidInstallModal = ({ onClose }) => {
   useEffect(() => {
@@ -41,13 +41,13 @@ const AndroidInstallModal = ({ onClose }) => {
             Cancel
           </button>
           <a
-            href={RELEASES_URL}
+            href={APK_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="link-cta link-cta-primary"
             onClick={onClose}
           >
-            Continue to GitHub <span className="link-cta-arrow">&rarr;</span>
+            Continue to download <span className="link-cta-arrow">&rarr;</span>
           </a>
         </div>
       </div>
