@@ -4,7 +4,11 @@ import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import './EmailForm.css';
 
-const EmailForm = () => {
+const EmailForm = ({
+  placeholder = 'you@email.com',
+  buttonText = 'Get in touch',
+  successText = "Thanks — we'll be in touch soon.",
+}) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState({ text: '', type: '' });
 
@@ -12,44 +16,29 @@ const EmailForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    console.log('EmailJS Config:', {
-  service: ` ${process.env.REACT_APP_EMAILJS_SERVICE_ID}`,
-  template: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-  user: process.env.REACT_APP_EMAILJS_USER_ID
-});
-    
-    // Use the correct environment variable names
     const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
     const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
     const USER_ID = process.env.REACT_APP_EMAILJS_USER_ID;
-    
-    // Add validation for environment variables
+
     if (!SERVICE_ID || !TEMPLATE_ID || !USER_ID) {
       console.error('Missing EmailJS environment variables');
-      setMessage({ 
-        text: 'Configuration error. Please contact support.', 
-        type: 'error' 
+      setMessage({
+        text: 'Configuration error. Please contact support.',
+        type: 'error',
       });
       setIsSubmitting(false);
       return;
     }
-    
-    emailjs.sendForm(
-      SERVICE_ID,
-      TEMPLATE_ID,
-      e.target,
-      USER_ID
-    ).then(
-      (result) => {
-        console.log('Email sent successfully!', result.text);
-        setMessage({ text: 'Thank you! We\'ll be in touch soon.', type: 'success' });
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID).then(
+      () => {
+        setMessage({ text: successText, type: 'success' });
         e.target.reset();
       },
       (error) => {
-        console.error('EmailJS error:', error);
-        setMessage({ 
-          text: `Failed to send: ${error.text || 'Please try again later'}`, 
-          type: 'error' 
+        setMessage({
+          text: `Failed to send: ${error.text || 'please try again later'}`,
+          type: 'error',
         });
       }
     ).finally(() => {
@@ -61,22 +50,23 @@ const EmailForm = () => {
   return (
     <div className="email-form-container">
       <form onSubmit={sendEmail}>
-        <input 
-          type="email" 
+        <input
+          type="email"
           name="user_email"
-          placeholder="Enter your email" 
-          required 
+          placeholder={placeholder}
+          required
           disabled={isSubmitting}
         />
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           disabled={isSubmitting}
-          className={`btn ${isSubmitting ? 'submitting' : ''}`}
+          className={`email-form-submit ${isSubmitting ? 'submitting' : ''}`}
         >
-          {isSubmitting ? 'Sending...' : 'Join the Journey'}
+          {isSubmitting ? 'Sending' : buttonText}
+          <span className="link-cta-arrow">&rarr;</span>
         </button>
       </form>
-      
+
       {message.text && (
         <div className={`message ${message.type}`}>
           {message.text}

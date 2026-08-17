@@ -1,25 +1,47 @@
 /* components/Traction.css */
 .traction {
-  padding: 5rem 0;
-  background-color: var(--surface-alt);
+  padding: 7rem 0;
+  background-color: var(--background);
 }
 
-.traction-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+.traction-list {
+  border-top: 1px solid var(--border);
 }
 
-.traction-card {
-  background: var(--surface);
-  border-left: 4px solid var(--primary);
-  border-radius: 6px;
-  padding: 1.5rem;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+.traction-item {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 0.3s ease;
 }
 
-.traction-card p {
+.traction-item:hover {
+  padding-left: 0.75rem;
+}
+
+.traction-index {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--primary-soft);
+  flex-shrink: 0;
+  width: 2.5rem;
+}
+
+.traction-item p {
   color: var(--text);
-  font-weight: 500;
+  font-size: 1.15rem;
+  font-weight: 400;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .traction-item {
+    gap: 1.25rem;
+  }
+
+  .traction-item p {
+    font-size: 1rem;
+  }
 }

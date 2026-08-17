@@ -23,98 +23,72 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(11, 11, 12, 0.78));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85));
   z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
-  text-align: center;
-  margin: 0 auto;
+  max-width: 760px;
+  text-align: left;
 }
 
-.eyebrow-light {
+.hero-content .kicker {
   color: var(--primary-soft);
 }
 
-.here-header {
-  font-size: larger;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 900;
-  justify-self: end;
-}
-
-.hero-text h1 {
-  font-size: 5rem;
-  margin-bottom: 1rem;
+.hero-header {
+  font-size: clamp(4.5rem, 14vw, 9.5rem);
+  margin-bottom: 0.5rem;
   color: var(--white);
-  line-height: 1;
+  line-height: 0.85;
+  letter-spacing: -0.01em;
 }
 
 .tagline {
-  font-size: 1.6rem;
-  margin-bottom: 1.5rem;
+  font-family: var(--font-serif);
+  font-style: italic;
   font-weight: 300;
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  margin-bottom: 2.5rem;
+  color: var(--text-on-dark-muted);
+}
+
+.hero-secondary {
+  max-width: 560px;
 }
 
 .subtitle {
-  font-size: 1.15rem;
-  margin-bottom: 2.5rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
   color: var(--text-on-dark-muted);
 }
 
 .hero-app-buttons {
-  justify-content: center;
   margin-bottom: 2.5rem;
 }
 
-.hero-waitlist-label {
-  font-size: 0.95rem;
-  color: var(--text-on-dark-muted);
+.hero-contact-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
   margin-bottom: 0.75rem;
 }
 
-.email-form {
-  display: flex;
-  max-width: 600px;
-  margin: 0 auto;
-  gap: 1rem;
-}
-
-.email-form input {
-  flex: 1;
-  padding: 15px 20px;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.9);
-}
-
 @media (max-width: 768px) {
-  .hero-text h1 {
-    font-size: 3.2rem;
+  .hero-header {
+    font-size: clamp(3.2rem, 20vw, 5rem);
   }
 
   .tagline {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .hero-app-buttons {
     flex-direction: column;
-    align-items: stretch;
-  }
-
-  .email-form {
-    flex-direction: column;
-  }
-
-  .email-form input,
-  .email-form button {
-    width: 100%;
+    align-items: flex-start;
   }
 }

@@ -1,6 +1,15 @@
 // components/Team.js
 import React from 'react';
+import Reveal from './Reveal';
 import './Team.css';
+
+const initials = (name) =>
+  name
+    .split(' ')
+    .filter(Boolean)
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase();
 
 const TEAM = [
   {
@@ -34,16 +43,22 @@ const Team = () => {
   return (
     <section id="team" className="team">
       <div className="container">
-        <h2 className="section-title">The Team</h2>
-        <p className="section-subtitle">Building for long-term success.</p>
+        <div className="section-head section-head--right">
+          <span className="kicker">Who's building this</span>
+          <h2>The Team</h2>
+          <p>Building for long-term success.</p>
+        </div>
 
         <div className="team-grid">
-          {TEAM.map((member) => (
-            <div className="team-card" key={member.name}>
+          {TEAM.map((member, i) => (
+            <Reveal as="div" variant="fade-up" delay={i * 90} className="team-tile" key={member.name}>
+              <div className="team-avatar" aria-hidden="true">
+                <span>{initials(member.name)}</span>
+              </div>
               <h3>{member.name}</h3>
               <p className="team-role">{member.role}</p>
               <p className="team-bio">{member.bio}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

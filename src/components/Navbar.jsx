@@ -40,7 +40,7 @@ const Navbar = () => {
         <div className="navbar-content">
           <div className="logo">
             <span className="logo-icon"><FaDoorOpen size={28} color="#7a1e3a" /></span>
-            <span className="logo-text">Odini</span>
+            <span className="logo-text">ODINI</span>
           </div>
 
           <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
@@ -60,18 +60,18 @@ const Navbar = () => {
           </div>
 
           <div className="nav-actions">
-            <button className="btn btn-outline">
-              <Link
-                to="join"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Early Access
-              </Link>
-            </button>
+            <Link
+              className="link-cta link-cta-primary"
+              to="join"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Early Access
+              <span className="link-cta-arrow">&rarr;</span>
+            </Link>
           </div>
 
           <div className="mobile-toggle" onClick={toggleMobileMenu}>

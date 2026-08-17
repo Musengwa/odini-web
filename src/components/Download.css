@@ -1,56 +1,63 @@
 /* components/Download.css */
 .download {
-  padding: 5.5rem 0;
+  padding: 7rem 0;
   background: var(--black);
   color: var(--white);
-  text-align: center;
 }
 
-.download .eyebrow-light {
+.download-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.download-intro .kicker {
   color: var(--primary-soft);
 }
 
 .download-title {
-  font-size: 2.75rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   color: var(--white);
-  margin-bottom: 1.25rem;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
 }
 
 .download-subtitle {
-  max-width: 640px;
-  margin: 0 auto 2.5rem;
+  max-width: 480px;
   color: var(--text-on-dark-muted);
   font-size: 1.05rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
 }
 
-.download-buttons {
-  justify-content: center;
-  margin-bottom: 3rem;
+.download-buttons button.link-cta {
+  font: inherit;
 }
 
-.download-buttons .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
+.download-contact {
+  border-top: 1px solid var(--border-on-dark);
+  padding-top: 2rem;
 }
 
-.download-waitlist {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.download-waitlist p {
+.download-contact p {
   color: var(--text-on-dark-muted);
   margin-bottom: 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+  .download-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .download-title {
-    font-size: 2rem;
-  }
-
   .download-buttons {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
   }
 }

@@ -1,5 +1,6 @@
 // components/Traction.js
 import React from 'react';
+import Reveal from './Reveal';
 import './Traction.css';
 
 const TRACTION_ITEMS = [
@@ -16,13 +17,17 @@ const Traction = () => {
   return (
     <section id="traction" className="traction">
       <div className="container">
-        <h2 className="section-title">Traction</h2>
+        <div className="section-head section-head--right">
+          <span className="kicker">Where we stand</span>
+          <h2>Traction</h2>
+        </div>
 
-        <div className="traction-grid">
-          {TRACTION_ITEMS.map((item) => (
-            <div className="traction-card" key={item}>
+        <div className="traction-list">
+          {TRACTION_ITEMS.map((item, i) => (
+            <Reveal as="div" variant="fade-up" delay={i * 70} className="traction-item" key={item}>
+              <span className="traction-index">{String(i + 1).padStart(2, '0')}</span>
               <p>{item}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

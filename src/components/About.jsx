@@ -1,23 +1,26 @@
 // components/About.js
 import React from 'react';
+import Reveal from './Reveal';
 import './About.css';
 
 const About = () => {
   return (
     <section id="about" className="about">
       <div className="container">
-        <h2 className="section-title">About Odini</h2>
+        <div className="section-head">
+          <span className="kicker">Why we started</span>
+          <h2>About ODINI</h2>
+        </div>
 
         <div className="about-content">
-          <div className="about-text">
+          <Reveal variant="fade-up" className="about-text">
             <h3>Background</h3>
             <ul className="about-list">
-              <li>Lost my room at UNZA during exam period.</li>
-              <li>
-                Nowhere to find an affordable stay — everything scattered across WhatsApp and
-                Facebook, no way to compare or verify.
-              </li>
-              <li>Started with stays, found the same gap in events and experiences.</li>
+              <li>As students, accomodation was always an issue.</li>
+              <li>Nowhere to find an affordable stay everything scattered across WhatsApp and
+                Facebook, no way to compare or verify.</li>
+              <li>A solution for targeted stays was needed</li>
+              <li>we realized that the same gap existed in events and experiences too</li>
             </ul>
 
             <h3>Vision</h3>
@@ -33,16 +36,14 @@ const About = () => {
               through intelligent technology while empowering local businesses to reach the
               people most likely to love what they offer."
             </p>
-          </div>
+          </Reveal>
 
-          <div className="about-image">
-            <div className="image-frame">
-              <img
-                src="https://d2vc0hr24xoxe3.cloudfront.net/eyJidWNrZXQiOiJ3ZWItYXBwLXN0b3JhZ2Utbm9ydGgtdmlyZ2luaWEiLCJrZXkiOiJ3cC1jb250ZW50L3VwbG9hZHMvMjAyMy8wMy8xNTA3MDEzMy9MaXZpbmdzdG9uZS1XaWRlc2NyZWVuLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJoZWlnaHQiOjEwODAsIndpZHRoIjoxOTIwLCJmaXQiOiJpbnNpZGUifX19"
-                alt="Livingstone, Zambia"
-              />
-            </div>
-          </div>
+          <Reveal variant="zoom" delay={150} className="about-image">
+            <img
+              src="https://d2vc0hr24xoxe3.cloudfront.net/eyJidWNrZXQiOiJ3ZWItYXBwLXN0b3JhZ2Utbm9ydGgtdmlyZ2luaWEiLCJrZXkiOiJ3cC1jb250ZW50L3VwbG9hZHMvMjAyMy8wMy8xNTA3MDEzMy9MaXZpbmdzdG9uZS1XaWRlc2NyZWVuLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJoZWlnaHQiOjEwODAsIndpZHRoIjoxOTIwLCJmaXQiOiJpbnNpZGUifX19"
+              alt="Livingstone, Zambia"
+            />
+          </Reveal>
         </div>
       </div>
     </section>

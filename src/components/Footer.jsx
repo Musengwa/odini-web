@@ -17,7 +17,7 @@ const Footer = () => {
               <span className="logo-icon"><FaDoorOpen size={28} color="#a44e69"/></span>
               <span className="logo-text">Odini</span>
             </div>
-            <p>Africa's AI-powered experience platform — where discovery meets culture and adventure.</p>
+            <p>Africa's AI-powered experience platform, where discovery meets culture and adventure.</p>
             <div className="social-links">
               <a href="https://wa.me/260967047847" target="_blank" rel="noreferrer" aria-label="WhatsApp"><FaWhatsapp size={26} color="rgba(255, 255, 255, 1)"/></a>
               <a href="mailto:odinizambia@gmail.com" aria-label="Email"><MdEmail size={26} color="rgba(255, 255, 255, 1)"/></a>
