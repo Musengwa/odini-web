@@ -1,0 +1,10 @@
+{
+  "description": "This web application allows users to create and share custom logos, enhancing brand identity and visual appeal for businesses and individuals.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
