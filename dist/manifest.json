@@ -1,0 +1,15 @@
+{
+  "short_name": "Odini",
+  "name": "ODINI - AI-Powered Experience Platform",
+  "icons": [
+    {
+      "src": "odinicon.jpg",
+      "type": "image/jpeg",
+      "sizes": "969x969"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#0a0a0b"
+}

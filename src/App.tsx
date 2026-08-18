@@ -1,5 +1,25 @@
-import { useState, useEffect } from 'react'
+import { createElement, useState, useEffect } from 'react'
+import EmailModal from './components/EmailModal'
 import logoImg from '@/imports/WhatsApp_Image_2026-08-12_at_07.45.04.jpeg'
+import {
+  FaBuilding,
+  FaBullhorn,
+  FaCalendarAlt,
+  FaChartLine,
+  FaClipboardList,
+  FaCompass,
+  FaConciergeBell,
+  FaGem,
+  FaHeart,
+  FaLink,
+  FaRobot,
+  FaRoute,
+} from 'react-icons/fa'
+import { FiArrowRight, FiMenu, FiX } from 'react-icons/fi'
+
+const categoryIcons = [FaBuilding, FaCalendarAlt, FaCompass, FaConciergeBell]
+const whyIcons = [FaBuilding, FaCalendarAlt, FaCompass, FaConciergeBell, FaRoute, FaGem]
+const businessIcons = [FaRobot, FaHeart, FaLink, FaChartLine, FaClipboardList, FaBullhorn]
 
 /* ── Circular motif pulled from the logo's "i" dot and "o" letterform ── */
 function Circle({ size, opacity = 1, style }: { size: number; opacity?: number; style?: React.CSSProperties }) {
@@ -50,85 +70,81 @@ function Nav() {
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
-  const links = ['Explore', 'For Businesses', 'AI Concierge', 'About', 'Resources']
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+
+    if (open) {
+      window.addEventListener('keydown', closeOnEscape)
+      document.body.style.overflow = 'hidden'
+    }
+
+    return () => {
+      window.removeEventListener('keydown', closeOnEscape)
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
+  const links = [
+    { label: 'Explore', href: '#explore' },
+    { label: 'For Businesses', href: '#businesses' },
+    { label: 'AI Concierge', href: '#ai-concierge' },
+    { label: 'About', href: '#about' },
+    { label: 'Resources', href: '#resources' },
+  ]
+
+  const closeMenu = () => setOpen(false)
 
   return (
-    <nav className={scrolled ? 'glass' : ''} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, transition: 'all 0.3s', padding: scrolled ? '14px 0' : '22px 0' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <nav
+      className={scrolled ? 'glass' : ''}
+      aria-label="Main navigation"
+      style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, transition: 'all 0.3s', padding: scrolled ? '12px 0' : '18px 0' }}
+    >
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 clamp(20px, 5vw, 48px)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20 }}>
 
         {/* Logo — white on black, exactly as designed */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center' }}>
+        <a href="#explore" onClick={closeMenu} aria-label="ODINI home" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
           <img src={logoImg} alt="ODINI" style={{ height: 32, width: 'auto', objectFit: 'contain' }} />
         </a>
 
         {/* Desktop links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 32 }} className="hidden md:flex">
-          {links.map(l => (
+        <div style={{ alignItems: 'center', gap: 'clamp(16px, 2.5vw, 32px)' }} className="hidden md:flex">
+          {links.map(({ label, href }) => (
             <a
-              key={l}
-              href="#"
+              key={label}
+              href={href}
               style={{ fontSize: 14, fontWeight: 500, color: 'rgba(255,255,255,0.5)', transition: 'color 0.2s', textDecoration: 'none' }}
               onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
             >
-              {l}
+              {label}
             </a>
           ))}
         </div>
 
-        {/* CTA */}
-        <button
-          className="hidden md:block"
-          style={{
-            background: '#fff',
-            color: '#000',
-            border: 'none',
-            borderRadius: 999,
-            padding: '10px 22px',
-            fontWeight: 700,
-            fontSize: 13,
-            cursor: 'pointer',
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            transition: 'opacity 0.2s',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
-          onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-        >
-          Join the Waitlist
-        </button>
-
         {/* Hamburger */}
         <button
-          className="md:hidden"
+          type="button"
+          className="flex items-center justify-center md:hidden"
           onClick={() => setOpen(!open)}
-          style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: 5, padding: 4 }}
+          aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 12, cursor: 'pointer', width: 44, height: 44, padding: 0, lineHeight: 0 }}
         >
-          {[0, 1, 2].map(i => (
-            <span
-              key={i}
-              style={{
-                display: 'block', width: 22, height: 2, background: '#fff',
-                transition: 'all 0.25s',
-                transform: open && i === 0 ? 'rotate(45deg) translateY(7px)' : open && i === 2 ? 'rotate(-45deg) translateY(-7px)' : '',
-                opacity: open && i === 1 ? 0 : 1,
-              }}
-            />
-          ))}
+          {open ? <FiX aria-hidden="true" size={24} /> : <FiMenu aria-hidden="true" size={24} />}
         </button>
       </div>
 
       {open && (
-        <div className="glass md:hidden" style={{ padding: '16px 32px 24px' }}>
-          {links.map(l => (
-            <div key={l} style={{ padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-              <a href="#" style={{ fontSize: 15, fontWeight: 500, color: 'rgba(255,255,255,0.8)', textDecoration: 'none' }}>{l}</a>
+        <div id="mobile-navigation" className="glass md:hidden" style={{ padding: '14px clamp(20px, 5vw, 48px) 24px', background: 'rgba(0,0,0,0.96)', borderTop: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 18px 40px rgba(0,0,0,0.35)' }}>
+          {links.map(({ label, href }) => (
+            <div key={label} style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+              <a href={href} onClick={closeMenu} style={{ display: 'block', padding: '15px 0', fontSize: 15, fontWeight: 600, color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>{label}</a>
             </div>
           ))}
-          <button
-            style={{ marginTop: 16, background: '#fff', color: '#000', borderRadius: 999, padding: '10px 22px', fontWeight: 700, fontSize: 13, border: 'none', cursor: 'pointer', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-          >
-            Join the Waitlist
-          </button>
         </div>
       )}
     </nav>
@@ -136,9 +152,9 @@ function Nav() {
 }
 
 /* ── Hero ── */
-function Hero() {
+function Hero({ onOpenEmail }: { onOpenEmail?: () => void }) {
   return (
-    <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', paddingTop: 100, paddingBottom: 60 }}>
+    <section id="explore" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', paddingTop: 100, paddingBottom: 60, scrollMarginTop: 88 }}>
 
       {/* Background: circle-grid pattern from the logo geometry */}
       <div className="circle-grid" style={{ position: 'absolute', inset: 0, zIndex: 0 }} />
@@ -177,6 +193,7 @@ function Hero() {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center', marginBottom: 72 }}>
           <button
             style={{ background: '#fff', color: '#000', borderRadius: 999, padding: '14px 32px', fontWeight: 800, fontSize: 14, border: 'none', cursor: 'pointer', fontFamily: "'Plus Jakarta Sans', sans-serif", transition: 'opacity 0.2s' }}
+            onClick={() => onOpenEmail && onOpenEmail()}
             onMouseEnter={e => (e.currentTarget.style.opacity = '0.88')}
             onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
           >
@@ -194,11 +211,11 @@ function Hero() {
         {/* Category pills — four core pillars */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
           {[
-            { icon: '🏨', label: 'Stays' },
-            { icon: '🎉', label: 'Events' },
-            { icon: '🎯', label: 'Activities' },
-            { icon: '🛎', label: 'Services' },
-          ].map(({ icon, label }) => (
+            { label: 'Stays' },
+            { label: 'Events' },
+            { label: 'Activities' },
+            { label: 'Services' },
+          ].map(({ label }, index) => (
             <div
               key={label}
               style={{
@@ -219,7 +236,7 @@ function Hero() {
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
               }}
             >
-              <span>{icon}</span>
+              <span>{createElement(categoryIcons[index], { 'aria-hidden': true, size: 15, color: '#C8A46B' })}</span>
               <span>{label}</span>
             </div>
           ))}
@@ -232,16 +249,16 @@ function Hero() {
 /* ── Why ODINI ── */
 function WhyOdini() {
   const cats = [
-    { icon: '🏨', title: 'Stays', desc: 'Hotels, boutique stays and unique accommodations tailored to your style.' },
-    { icon: '🎉', title: 'Events', desc: 'Concerts, festivals, nightlife, exhibitions and local happenings.' },
-    { icon: '🎯', title: 'Activities', desc: 'Adventure, tours, sports, outdoor experiences and attractions.' },
-    { icon: '🛎', title: 'Services', desc: 'Restaurants, cafés, photography, wellness, equipment rentals, guides, event services, and other local services.' },
-    { icon: '🗺', title: 'Intelligent Itineraries', desc: 'AI-generated day plans that balance your interests, budget, and available time.' },
-    { icon: '✨', title: 'Hidden Gems', desc: 'Experiences surfaced by AI relevance rather than existing popularity.' },
+    { title: 'Stays', desc: 'Hotels, boutique stays and unique accommodations tailored to your style.' },
+    { title: 'Events', desc: 'Concerts, festivals, nightlife, exhibitions and local happenings.' },
+    { title: 'Activities', desc: 'Adventure, tours, sports, outdoor experiences and attractions.' },
+    { title: 'Services', desc: 'Restaurants, cafés, photography, wellness, equipment rentals, guides, event services, and other local services.' },
+    { title: 'Intelligent Itineraries', desc: 'AI-generated day plans that balance your interests, budget, and available time.' },
+    { title: 'Hidden Gems', desc: 'Experiences surfaced by AI relevance rather than existing popularity.' },
   ]
 
   return (
-    <section style={{ padding: '120px 32px', maxWidth: 1280, margin: '0 auto' }}>
+    <section style={{ padding: 'clamp(72px, 12vw, 120px) clamp(20px, 5vw, 32px)', maxWidth: 1280, margin: '0 auto', scrollMarginTop: 88 }}>
       <Label>Why ODINI</Label>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
@@ -252,8 +269,8 @@ function WhyOdini() {
         </h2>
 
         {/* Cards — asymmetric: 2 large + 4 small */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
-          {cats.map(({ icon, title, desc }, i) => (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 16 }}>
+          {cats.map(({ title, desc }, i) => (
             <div
               key={title}
               className="card"
@@ -280,7 +297,7 @@ function WhyOdini() {
                 if (desc) desc.style.color = 'rgba(255,255,255,0.45)'
               }}
             >
-              <div style={{ fontSize: 28, marginBottom: 18 }}>{icon}</div>
+              <div style={{ fontSize: 28, marginBottom: 18 }}>{createElement(whyIcons[i], { 'aria-hidden': true, size: 26, color: '#C8A46B' })}</div>
               <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 8 }}>{title}</div>
               <div className="desc" style={{ fontSize: 13, lineHeight: 1.65, color: 'rgba(255,255,255,0.45)', transition: 'color 0.25s' }}>{desc}</div>
             </div>
@@ -295,11 +312,11 @@ function WhyOdini() {
 function AIConcierge() {
   const itinerary = [
     { type: 'Stay',      label: 'The David Livingstone Safari Lodge', meta: 'K850/night · Riverside · Verified' },
-    { type: 'Breakfast', label: 'Café Zambezi',                       meta: 'K85 avg · Opens 7am · Hidden gem ✨' },
+    { type: 'Breakfast', label: 'Café Zambezi',                       meta: 'K85 avg · Opens 7am · Hidden gem' },
     { type: 'Activity',  label: 'Victoria Falls Guided Tour',          meta: 'K350 · Guided · Peak slot' },
     { type: 'Dinner',    label: 'The Livingstone Room',                meta: 'K290 avg · Fine dining' },
     { type: 'Event',     label: 'Sunset Cruise on the Zambezi',        meta: 'K420 · Limited seats' },
-    { type: 'Evening',   label: 'Moonlit Bush Walk',                   meta: 'K380 · Guide-led · Hidden gem ✨' },
+    { type: 'Evening',   label: 'Moonlit Bush Walk',                   meta: 'K380 · Guide-led · Hidden gem' },
   ]
 
   const capabilities = [
@@ -309,7 +326,7 @@ function AIConcierge() {
   ]
 
   return (
-    <section style={{ padding: '120px 32px', background: 'rgba(255,255,255,0.025)' }}>
+    <section id="ai-concierge" style={{ padding: 'clamp(72px, 12vw, 120px) clamp(20px, 5vw, 32px)', background: 'rgba(255,255,255,0.025)', scrollMarginTop: 88 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         {/* Section label with "In Development" badge */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 8 }}>
@@ -458,7 +475,7 @@ function HowItWorks() {
   ]
 
   return (
-    <section style={{ padding: '120px 32px' }}>
+    <section style={{ padding: 'clamp(72px, 12vw, 120px) clamp(20px, 5vw, 32px)', scrollMarginTop: 88 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <Label>How It Works</Label>
 
@@ -466,7 +483,7 @@ function HowItWorks() {
           Three steps to your perfect experience.
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 16 }}>
           {steps.map(({ n, title, items, img }) => (
             <div
               key={n}
@@ -511,7 +528,7 @@ function HowItWorks() {
 }
 
 /* ── For Businesses ── */
-function ForBusinesses() {
+function ForBusinesses({ onOpenPartner }: { onOpenPartner?: (props?: any) => void }) {
   const features = [
     { icon: '✦', label: 'AI-Enhanced Listings',  desc: 'Your business will surface to people most likely to genuinely love what you offer.' },
     { icon: '♡', label: 'Followers',              desc: 'Build a loyal audience that gets notified of your latest offerings and updates.' },
@@ -522,7 +539,7 @@ function ForBusinesses() {
   ]
 
   return (
-    <section style={{ padding: '120px 32px', background: 'rgba(255,255,255,0.02)' }}>
+    <section id="businesses" style={{ padding: 'clamp(72px, 12vw, 120px) clamp(20px, 5vw, 32px)', background: 'rgba(255,255,255,0.02)', scrollMarginTop: 88 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <Label>For Businesses</Label>
 
@@ -537,6 +554,7 @@ function ForBusinesses() {
             </p>
             <button
               style={{ background: '#fff', color: '#000', borderRadius: 999, padding: '13px 28px', fontWeight: 700, fontSize: 14, border: 'none', cursor: 'pointer', fontFamily: "'Plus Jakarta Sans', sans-serif", transition: 'opacity 0.2s' }}
+              onClick={() => onOpenPartner && onOpenPartner({ placeholder: 'you@business.com', buttonText: 'Become a Business Partner' })}
               onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
               onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
             >
@@ -584,7 +602,7 @@ function ForBusinesses() {
               What Businesses Can Expect
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-              {features.map(({ icon, label, desc }) => (
+          {features.map(({ label, desc }, index) => (
                 <div
                   key={label}
                   className="card"
@@ -600,7 +618,7 @@ function ForBusinesses() {
                     e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'
                   }}
                 >
-                  <div style={{ fontSize: 18, marginBottom: 10, color: '#C8A46B' }}>{icon}</div>
+                  <div style={{ fontSize: 18, marginBottom: 10, color: '#C8A46B' }}>{createElement(businessIcons[index], { 'aria-hidden': true, size: 18 })}</div>
                   <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 6 }}>{label}</div>
                   <div style={{ fontSize: 11, lineHeight: 1.6, color: 'rgba(255,255,255,0.45)', transition: 'color 0.2s' }}
                     onMouseEnter={e => (e.currentTarget.style.color = 'rgba(0,0,0,0.5)')}
@@ -619,7 +637,7 @@ function ForBusinesses() {
 /* ── Philosophy ── */
 function Philosophy() {
   return (
-    <section style={{ padding: '140px 32px', position: 'relative', overflow: 'hidden' }}>
+    <section id="about" style={{ padding: 'clamp(88px, 14vw, 140px) clamp(20px, 5vw, 32px)', position: 'relative', overflow: 'hidden', scrollMarginTop: 88 }}>
       {/* Decorative circle ring — the logo's "o" motif, large */}
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 600, height: 600, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 400, height: 400, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.05)', pointerEvents: 'none' }} />
@@ -655,7 +673,7 @@ function BuiltForZambia() {
   ]
 
   return (
-    <section style={{ padding: '120px 32px' }}>
+    <section id="resources" style={{ padding: 'clamp(72px, 12vw, 120px) clamp(20px, 5vw, 32px)', scrollMarginTop: 88 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <Label>Built for Zambia</Label>
 
@@ -669,7 +687,7 @@ function BuiltForZambia() {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: 16 }}>
           {regions.map(({ name, desc, img }) => (
             <div
               key={name}
@@ -700,9 +718,9 @@ function BuiltForZambia() {
 }
 
 /* ── Final CTA ── */
-function FinalCTA() {
+function FinalCTA({ onOpenEmail, onOpenPartner }: { onOpenEmail?: (props?: any) => void; onOpenPartner?: (props?: any) => void }) {
   return (
-    <section style={{ padding: '80px 32px 120px' }}>
+    <section style={{ padding: 'clamp(56px, 10vw, 80px) clamp(20px, 5vw, 32px) clamp(80px, 12vw, 120px)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div
           style={{
@@ -736,6 +754,7 @@ function FinalCTA() {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center' }}>
               <button
                 style={{ background: '#000', color: '#fff', borderRadius: 999, padding: '14px 32px', fontWeight: 800, fontSize: 14, border: 'none', cursor: 'pointer', fontFamily: "'Plus Jakarta Sans', sans-serif", transition: 'opacity 0.2s' }}
+                onClick={() => onOpenEmail && onOpenEmail()}
                 onMouseEnter={e => (e.currentTarget.style.opacity = '0.8')}
                 onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
               >
@@ -743,6 +762,7 @@ function FinalCTA() {
               </button>
               <button
                 style={{ background: 'transparent', color: '#000', borderRadius: 999, padding: '14px 32px', fontWeight: 600, fontSize: 14, border: '1px solid rgba(0,0,0,0.2)', cursor: 'pointer', fontFamily: "'Plus Jakarta Sans', sans-serif", transition: 'border-color 0.2s' }}
+                onClick={() => onOpenPartner && onOpenPartner({ placeholder: 'you@business.com', buttonText: 'Become a Business Partner' })}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(0,0,0,0.6)')}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(0,0,0,0.2)')}
               >
@@ -811,6 +831,14 @@ function Footer() {
 
 /* ── App ── */
 export default function App() {
+  const [showEmailModal, setShowEmailModal] = useState(false)
+  const [emailModalProps, setEmailModalProps] = useState({})
+
+  const openEmailModal = (props?: any) => {
+    setEmailModalProps(props || { placeholder: 'you@email.com', buttonText: 'Get in touch' })
+    setShowEmailModal(true)
+  }
+
   return (
     <div style={{ background: '#000000', color: '#FFFFFF', minHeight: '100vh' }}>
       <style>{`
@@ -822,15 +850,18 @@ export default function App() {
         }
       `}</style>
       <Nav />
-      <Hero />
+      <Hero onOpenEmail={(props?: any) => openEmailModal(props)} />
       <WhyOdini />
       <AIConcierge />
       <HowItWorks />
-      <ForBusinesses />
+      <ForBusinesses onOpenPartner={(props?: any) => openEmailModal(props || { placeholder: 'you@business.com', buttonText: 'Become a Business Partner' })} />
       <Philosophy />
       <BuiltForZambia />
-      <FinalCTA />
+      <FinalCTA onOpenEmail={(props?: any) => openEmailModal(props)} onOpenPartner={(props?: any) => openEmailModal(props || { placeholder: 'you@business.com', buttonText: 'Become a Business Partner' })} />
       <Footer />
+      {showEmailModal && (
+        <EmailModal onClose={() => setShowEmailModal(false)} {...emailModalProps} />
+      )}
     </div>
   )
 }
