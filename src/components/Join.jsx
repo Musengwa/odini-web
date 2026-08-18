@@ -1,10 +1,13 @@
 // components/Join.js
-import React from 'react';
+import React, { useState } from 'react';
 import './Join.css';
-import EmailForm from './email';
+import EmailModal from './EmailModal';
 import Reveal from './Reveal';
 
 const Join = () => {
+  const [showModal, setShowModal] = useState(false)
+  const [modalProps, setModalProps] = useState({})
+
   return (
     <section id="join" className="join">
       <div className="container">
@@ -27,7 +30,18 @@ const Join = () => {
               <li>Referral and followers systems to build your audience</li>
               <li>Actionable analytics on who's booking and why</li>
             </ul>
-            <EmailForm placeholder="you@business.com" buttonText="Work with us" />
+            <div>
+              <button
+                type="button"
+                className="email-form-submit"
+                onClick={() => {
+                  setModalProps({ placeholder: 'you@business.com', buttonText: 'Work with us' })
+                  setShowModal(true)
+                }}
+              >
+                Work with us <span className="link-cta-arrow">→</span>
+              </button>
+            </div>
           </Reveal>
 
           <Reveal variant="fade-up" delay={150} className="join-column">
@@ -42,12 +56,27 @@ const Join = () => {
               <li>Trusted, verified listings you can book with confidence</li>
               <li>Better discovery of hidden gems near you</li>
             </ul>
-            <EmailForm buttonText="Contact us" />
+            <div>
+              <button
+                type="button"
+                className="email-form-submit"
+                onClick={() => {
+                  setModalProps({ placeholder: 'you@email.com', buttonText: 'Contact us' })
+                  setShowModal(true)
+                }}
+              >
+                Contact us <span className="link-cta-arrow">→</span>
+              </button>
+            </div>
           </Reveal>
         </div>
       </div>
+      {showModal && (
+        <EmailModal onClose={() => setShowModal(false)} {...modalProps} />
+      )}
     </section>
   );
 };
 
 export default Join;
+

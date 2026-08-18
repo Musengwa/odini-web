@@ -36,8 +36,8 @@ const Hero = () => {
 
               <div className="link-row hero-app-buttons">
                 <span className="link-cta link-cta-muted">
-                  Download for Android
-                  <span className="badge-soon">Coming soon</span>
+                  Download for Android.
+                  <span className="badge-soon">Coming soon.</span>
                 </span>
                 <Link to="download" spy={true} smooth={true} offset={-70} duration={500} className="link-cta link-cta-primary">
                   Try Android Demo <span className="link-cta-arrow">&rarr;</span>
