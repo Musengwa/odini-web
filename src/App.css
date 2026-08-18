@@ -1,12 +1,41 @@
 /* App.css */
 :root {
-  --sand: #E6D3A7;
-  --deep-green: #1E5631;
-  --warm-orange: #FF7A00;
-  --royal-blue: #0047AB;
-  --light-sand: #f5f0e1;
-  --dark-text: #333333;
-  --light-text: #f8f8f8;
+  /* Backgrounds — primarily black, with tonal depth (not flat) */
+  --background: #0a0a0b;
+  --background-muted: #101012;
+  --surface: #0d0d0f;
+  --surface-alt: #151517;
+  --surface-strong: #232326;
+  --black: #000000;
+
+  /* Burgundy — accent / brand only, tuned to read on dark */
+  --primary: #b5445f;
+  --primary-deep: #7a1e3a;
+  --primary-soft: #e3a9ba;
+  --primary-tint: rgba(181, 68, 95, 0.1);
+  --primary-tint-strong: rgba(181, 68, 95, 0.22);
+
+  /* Text — warm off-white base */
+  --text: #f4f1ef;
+  --text-muted: #a9a5a2;
+  --text-subtle: #6f6b69;
+  --text-on-dark: #f4f1ef;
+  --text-on-dark-muted: rgba(244, 241, 239, 0.68);
+
+  /* Structural */
+  --border: rgba(255, 255, 255, 0.12);
+  --border-on-dark: rgba(255, 255, 255, 0.14);
+  --white: #ffffff;
+  --overlay: rgba(0, 0, 0, 0.6);
+
+  /* Semantic */
+  --danger: #e06a5a;
+  --success: #5fbf83;
+
+  /* Typography */
+  --font-display: 'Anton', 'Inter', sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * {
@@ -16,15 +45,42 @@
 }
 
 body {
-  font-family: 'Inter', 'Lato', sans-serif;
-  color: var(--dark-text);
-  background-color: #ffffff;
+  font-family: var(--font-body);
+  color: var(--text);
+  background-color: var(--background);
   line-height: 1.6;
 }
 
+::selection {
+  background: var(--primary-deep);
+  color: var(--white);
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--primary-soft);
+  outline-offset: 4px;
+}
+
 h1, h2, h3, h4 {
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
   margin-bottom: 1rem;
+}
+
+h3, h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: normal;
 }
 
 .container {
@@ -34,55 +90,190 @@ h1, h2, h3, h4 {
   padding: 2rem 0;
 }
 
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--deep-green);
-  position: relative;
+/* ---------- Typography system: mix huge display / thin small ---------- */
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--primary-soft);
+  margin-bottom: 1rem;
 }
 
-.section-title::after {
+.kicker::before {
   content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: var(--warm-orange);
-  margin: 0.5rem auto;
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
 }
 
-.btn {
+.eyebrow {
   display: inline-block;
-  padding: 12px 28px;
-  background: var(--warm-orange);
-  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-soft);
+  margin-bottom: 0.75rem;
+}
+
+.section-head {
+  max-width: 760px;
+  margin-bottom: 3.5rem;
+}
+
+.section-head h2 {
+  font-size: clamp(2.6rem, 6vw, 4.75rem);
+  line-height: 0.94;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.section-head p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin-top: 1rem;
+}
+
+.section-head--right {
+  margin-left: auto;
+  text-align: right;
+}
+
+.section-head--right .kicker {
+  flex-direction: row-reverse;
+}
+
+.section-head--right p {
+  margin-left: auto;
+}
+
+/* Legacy centered helpers kept only where a section still needs them */
+.section-title {
+  font-size: 2.75rem;
+  margin-bottom: 3rem;
+  color: var(--text);
+}
+
+.section-subtitle {
+  max-width: 800px;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.hairline {
   border: none;
-  border-radius: 4px;
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- CTAs: text links, not boxes ---------- */
+
+.link-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: none;
+  border: none;
+  padding: 0.2rem 0;
+  color: var(--text);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
   text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.25s ease, gap 0.25s ease;
 }
 
-.btn:hover {
-  background: #e06d00;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.link-cta::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transition: right 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.btn-outline {
-  background: transparent;
-  border: 2px solid var(--warm-orange);
-  color: var(--warm-orange);
+.link-cta:hover {
+  gap: 0.85rem;
 }
 
-.btn-outline:hover {
-  background: var(--warm-orange);
-  color: white;
+.link-cta:hover::after {
+  right: 0;
+}
+
+.link-cta-arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.85em;
+}
+
+.link-cta:hover .link-cta-arrow {
+  transform: translateX(2px);
+}
+
+.link-cta-primary {
+  color: var(--primary-soft);
+}
+
+.link-cta-muted,
+.link-cta-muted:hover {
+  color: var(--text-subtle);
+  cursor: not-allowed;
+  gap: 0.55rem;
+}
+
+.link-cta-muted::after {
+  display: none;
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+  align-items: center;
+}
+
+.badge-soon {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-left: 0.6rem;
+  vertical-align: middle;
 }
 
 @media (max-width: 768px) {
+  .section-head h2 {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .section-head--right {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .section-head--right .kicker {
+    flex-direction: row;
+  }
+
+  .section-head--right p {
+    margin-left: 0;
+  }
+
   .section-title {
     font-size: 2rem;
   }

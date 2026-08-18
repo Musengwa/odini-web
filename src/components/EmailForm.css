@@ -2,25 +2,77 @@
 .email-form-container {
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
 }
 
 .email-form-container form {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border-on-dark);
+  padding-bottom: 0.85rem;
+  transition: border-color 0.3s ease;
+}
+
+.email-form-container form:focus-within {
+  border-color: var(--primary-soft);
 }
 
 .email-form-container input {
   flex: 1;
-  padding: 15px 20px;
+  min-width: 0;
+  background: none;
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.9);
+  padding: 0.4rem 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--text-on-dark);
 }
 
-.email-form-container button.submitting {
-  background: #aaa;
+.email-form-container input::placeholder {
+  color: var(--text-on-dark-muted);
+}
+
+.email-form-container input:focus {
+  outline: none;
+}
+
+.email-form-container input:disabled {
+  opacity: 0.5;
+}
+
+.email-form-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: none;
+  border: none;
+  padding: 0.4rem 0;
+  color: var(--primary-soft);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.email-form-submit .link-cta-arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.85em;
+}
+
+.email-form-submit:hover:not(:disabled) {
+  gap: 0.85rem;
+  color: var(--text-on-dark);
+}
+
+.email-form-submit:hover:not(:disabled) .link-cta-arrow {
+  transform: translateX(2px);
+}
+
+.email-form-submit:disabled,
+.email-form-submit.submitting {
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
@@ -30,26 +82,23 @@
   border-radius: 4px;
   text-align: center;
   font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .message.success {
-  background: rgba(46, 204, 113, 0.2);
-  color: #27ae60;
+  background: rgba(95, 191, 131, 0.12);
+  color: var(--success);
 }
 
 .message.error {
-  background: rgba(237, 29, 6, 0.075);
-  color: #60231d;
-  border: solid 1px #60231d ;
+  background: rgba(224, 106, 90, 0.1);
+  color: var(--danger);
+  border: solid 1px rgba(224, 106, 90, 0.4);
 }
 
 @media (max-width: 768px) {
   .email-form-container form {
-    flex-direction: column;
-  }
-  
-  .email-form-container input,
-  .email-form-container button {
-    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
   }
 }

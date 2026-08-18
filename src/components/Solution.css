@@ -1,0 +1,155 @@
+/* components/Solution.css */
+.solution {
+  padding: 7rem 0;
+  background-color: var(--surface);
+}
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.solution-block h3 {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1.75rem;
+}
+
+.solution-block-highlight h3 {
+  color: var(--primary-soft);
+}
+
+.solution-list {
+  list-style: none;
+}
+
+.solution-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.solution-list li:first-child {
+  padding-top: 0;
+}
+
+.solution-list-plain li {
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.solution-list-plain li::before {
+  content: '*';
+  position: absolute;
+  left: 0;
+  color: var(--primary-soft);
+  font-weight: 700;
+}
+
+.solution-icon {
+  display: inline-flex;
+  color: var(--primary-soft);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.comparison h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.comparison-table {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.4fr;
+  border-top: 1px solid var(--border);
+}
+
+.table-header {
+  display: contents;
+}
+
+.header-cell {
+  padding: 1rem 1rem 1rem 0;
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.table-row {
+  display: contents;
+}
+
+.row-cell {
+  padding: 1.25rem 1rem 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.table-row .row-cell:first-child {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.table-row .row-cell:nth-child(2) {
+  color: var(--primary-soft);
+}
+
+@media (max-width: 768px) {
+  .solution-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .comparison-table {
+    grid-template-columns: 1fr;
+  }
+
+  .table-header {
+    display: none;
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0 0.5rem;
+  }
+
+  .row-cell {
+    border-bottom: none;
+    padding: 0.35rem 0;
+  }
+
+  .row-cell:first-child {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+  }
+
+  .row-cell:nth-child(2)::before {
+    content: 'ODINI: ';
+    font-weight: 700;
+    color: var(--primary-soft);
+  }
+
+  .row-cell:nth-child(3)::before {
+    content: 'Other Platforms: ';
+    font-weight: 700;
+    color: var(--text-subtle);
+  }
+}

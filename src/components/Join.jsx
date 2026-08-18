@@ -2,35 +2,48 @@
 import React from 'react';
 import './Join.css';
 import EmailForm from './email';
+import Reveal from './Reveal';
 
 const Join = () => {
   return (
     <section id="join" className="join">
       <div className="container">
-        <h2 className="section-title">Join Us</h2>
-        
+        <div className="section-head">
+          <span className="kicker">Get involved</span>
+          <h2>Join Us</h2>
+        </div>
+
         <div className="join-content">
-          <div className="join-partners">
-            <div className="join-card">
-              <h3>For Partners</h3>
-              <p>Are you a lodge owner, event host, or cultural guide? Partner with us to reach more travelers and showcase authentic Zambian experiences.</p>
-              <ul className="partner-benefits">
-                <li>Reach new customers with our AI-powered recommendations</li>
-                <li>Manage bookings through our simple dashboard</li>
-                <li>Promote your events to a targeted audience</li>
-                <li>Get verified for increased trust and visibility</li>
-              </ul>
-              <EmailForm/>
-            </div>
-          </div>
-          
-          <div className="join-users">
-            <div className="join-card">
-              <h3>For Travelers</h3>
-              <p>Be the first to experience Odini and transform how you explore Zambia. Sign up for early access and updates.</p>
-              <EmailForm/>
-            </div>
-          </div>
+          <Reveal variant="fade-up" className="join-column">
+            <h3>For Businesses</h3>
+            <p>
+              Are you a stay owner, event host, or experience provider? Partner with us to
+              reach more travelers and grow with zero upfront cost.
+            </p>
+            <ul className="partner-benefits">
+              <li>Fair visibility based on relevance, not just budget</li>
+              <li>Free growth tools no cost to list or onboard</li>
+              <li>Better customer targeting through AI-enhanced listings</li>
+              <li>Referral and followers systems to build your audience</li>
+              <li>Actionable analytics on who's booking and why</li>
+            </ul>
+            <EmailForm placeholder="you@business.com" buttonText="Work with us" />
+          </Reveal>
+
+          <Reveal variant="fade-up" delay={150} className="join-column">
+            <h3>For Travelers</h3>
+            <p>
+              Be the first to experience ODINI and transform how you discover, plan, and
+              book across Zambia. Sign up for early access and updates.
+            </p>
+            <ul className="partner-benefits">
+              <li>Personalized, AI-powered recommendations</li>
+              <li>Faster trip planning with intelligent itineraries</li>
+              <li>Trusted, verified listings you can book with confidence</li>
+              <li>Better discovery of hidden gems near you</li>
+            </ul>
+            <EmailForm buttonText="Contact us" />
+          </Reveal>
         </div>
       </div>
     </section>
