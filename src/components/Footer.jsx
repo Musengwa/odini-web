@@ -40,9 +40,9 @@ const Footer = () => {
           <div className="footer-contact">
             <h4>Contact Us</h4>
             <ul>
-              <li>odinizambia@gmail.com</li>
-              <li>+260 967 047 847</li>
-              <li>Lusaka, Zambia</li>
+              <li>Odinizambia@gmail.com</li>
+              <li> +260 778 002 538</li>
+              <li> Lusaka, Zambia</li>
             </ul>
           </div>
         </div>
